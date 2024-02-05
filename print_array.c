@@ -2,17 +2,17 @@
 #include <stdio.h>
 
 /**
- * print_array - Prints array of int
+ * print_array - Array of integers printed
  *
- * @array: array to print
- * @size: Number of elements array has
+ * @array: Array to be printed
+ * @size: Number of elements in @array
  */
 void print_array(const int *array, size_t size)
 {
 	size_t a;
 
 	a = 0;
-	while (a < size && array)
+	while (array && a < size)
 	{
 		if (a > 0)
 			printf(", ");

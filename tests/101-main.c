@@ -12,25 +12,25 @@
  */
 listint_t *create_listint(const int *array, size_t size)
 {
-    listint_t *list;
-    listint_t *node;
+    listint_t *lst;
+    listint_t *nde;
     int *tmp;
 
-    list = NULL;
+    lst = NULL;
     while (size--)
     {
-        node = malloc(sizeof(*node));
-        if (!node)
+        nde = malloc(sizeof(*nde));
+        if (!nde)
             return (NULL);
-        tmp = (int *)&node->n;
+        tmp = (int *)&nde->n;
         *tmp = array[size];
-        node->next = list;
-        node->prev = NULL;
-        list = node;
-        if (list->next)
-            list->next->prev = list;
+        nde->next = list;
+        nde->prev = NULL;
+        lst = nde;
+        if (lst->next)
+            lst->next->prev = lst;
     }
-    return (list);
+    return (lst);
 }
 
 /**

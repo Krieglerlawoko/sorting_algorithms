@@ -3,34 +3,34 @@
 #include "../sort.h"
 
 /**
- * create_listint - Creates a doubly linked list from an array of integers
+ * create_listint - Doubly linked list created from an array of integers
  *
  * @array: Array to convert to a doubly linked list
- * @size: Size of the array
+ * @size: Array size
  *
- * Return: Pointer to the first element of the created list. NULL on failure
+ * Return: Points to first element of created list. NULL on failure
  */
 listint_t *create_listint(const int *array, size_t size)
 {
-	listint_t *list;
-	listint_t *node;
+	listint_t *lst;
+	listint_t *nde;
 	int *tmp;
 
-	list = NULL;
+	lst = NULL;
 	while (size--)
 	{
-		node = malloc(sizeof(*node));
-		if (!node)
+		nde = malloc(sizeof(*nde));
+		if (!nde)
 			return (NULL);
-		tmp = (int *)&node->n;
+		tmp = (int *)&nde->n;
 		*tmp = array[size];
-		node->next = list;
-		node->prev = NULL;
-		list = node;
-		if (list->next)
-			list->next->prev = list;
+		nde->next = lst;
+		nde->prev = NULL;
+		lst = nde;
+		if (lst->next)
+			lst->next->prev = lst;
 	}
-	return (list);
+	return (lst);
 }
 
 /**

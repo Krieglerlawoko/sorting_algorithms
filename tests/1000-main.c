@@ -4,18 +4,18 @@
 
 void print_deck(const deck_node_t *deck)
 {
-	size_t i;
+	size_t a;
 	char kinds[4] = {'S', 'H', 'C', 'D'};
 
-	i = 0;
+	a = 0;
 	while (deck)
 	{
-		if (i)
+		if (a)
 			printf(", ");
 		printf("{%s, %c}", deck->card->value, kinds[deck->card->kind]);
-		if (i == 12)
+		if (a == 12)
 			printf("\n");
-		i = (i + 1) % 13;
+		a = (a + 1) % 13;
 		deck = deck->next;
 	}
 }
@@ -24,16 +24,16 @@ deck_node_t *init_deck(const card_t cards[52])
 {
 	deck_node_t *deck;
 	deck_node_t *node;
-	size_t i;
+	size_t a;
 
-	i = 52;
+	a = 52;
 	deck = NULL;
-	while (i--)
+	while (a--)
 	{
 		node = malloc(sizeof(*node));
 		if (!node)
 			return (NULL);
-		node->card = &cards[i];
+		node->card = &cards[a];
 		node->next = deck;
 		node->prev = NULL;
 		if (deck)

@@ -1,46 +1,46 @@
-nclude "sort.h"
+#include "sort.h"
 
 /**
- * swap_ints - Swap 2 ints in an array
- * @a: 1st int to swap
- * @b: 2nd int to swap
+ * swap_ints - Two integers swapd in an array.
+ * @a: First integer to swap.
+ * @b: Second integer to swap.
  */
 void swap_ints(int *a, int *b)
 {
-	int tmplt;
+	int tmp;
 
-	tmplt = *a;
+	tmp = *a;
 	*a = *b;
-	*b = tmplt;
+	*b = tmp;
 }
 
 /**
- * shell_sort - Sort array of (ints) in ascending
- *              order using shell sort algorithm
- * @array: array of (int)s
- * @size: size of array
+ * shell_sort - Array of integers sorted in ascending
+ *              order using the shell sort algorithm.
+ * @array: Array of integers.
+ * @size: Array size.
  *
- * Description: Uses Knuth interval sequence
+ * Description: Knuth interval sequence usd.
  */
 void shell_sort(int *array, size_t size)
 {
-	size_t gp, a, b;
+	size_t gap, a, b;
 
 	if (array == NULL || size < 2)
 		return;
 
-	for (gp = 1; gp < (size / 3);)
-		gp = gp * 3 + 1;
+	for (gap = 1; gap < (size / 3);)
+		gap = gap * 3 + 1;
 
-	for (; gp >= 1; gp /= 3)
+	for (; gap >= 1; gap /= 3)
 	{
-		for (a = gp; a < size; a++)
+		for (a = gap; a < size; i++)
 		{
-			b = a;
-			while (b >= gp && array[b - gp] > array[b])
+			b = i;
+			while (b >= gap && array[b - gap] > array[b])
 			{
-				swap_ints(array + b, array + (b - gp));
-				b -= gp;
+				swap_ints(array + b, array + (b - gap));
+				b -= gap;
 			}
 		}
 		print_array(array, size);
