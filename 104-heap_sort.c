@@ -27,7 +27,7 @@ void swap_ints(int *a, int *b)
  */
 void max_heapify(int *array, size_t size, size_t base, size_t root)
 {
-	size_t lft, rght, large;
+	size_t lft, rght, lrge;
 
 	lft = 2 * root + 1;
 	rght = 2 * root + 2;
